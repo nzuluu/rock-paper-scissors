@@ -31,9 +31,13 @@ return userInput.toLowerCase();
 
 }
 
+//Function to play the game 5 times and declare winner
 function playGame() {
 
+//For loop to call playRound 5 times
 for (let i = 0; i < 5; i++) {
+
+    //Function to play the game
     function playRound(humanChoice, computerChoice) {
 
         let humanNum;
@@ -99,4 +103,10 @@ for (let i = 0; i < 5; i++) {
     playRound(humanSelection, computerSelection);
 }
 
+if (humanScore > computerScore) {
+    console.log("You are the winner!");
+}
+else {
+    console.log("The computer is the winner!");
+}
 }
