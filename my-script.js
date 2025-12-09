@@ -1,35 +1,26 @@
 let humanScore = 0;
 let computerScore = 0;
+let humanNum;
+let computerNum;
 let totalRound = 1;
 
-//This functions randomly returns “rock”, “paper” or “scissors”
+//This functions randomly returns “rock”(0), “paper”(1) or “scissors”(2)
 function getComputerChoice() {
-
-    let computerChoice;
 
     //This set the value from Math.random method to randomNum
     //// Expected output: 0, 1 or 2
     let randomNum = Math.floor(Math.random() * 3);
 
     if (randomNum == 0 ) {
-        computerChoice = "rock";
+        computerNum = 0;
     }
     else if (randomNum == 1) {
-        computerChoice = "paper";
+        computerNum = 1;
     }
     else {
-        computerChoice = "scissors";
+        computerNum = 2;
     }
-    return computerChoice;
-}
-
-//Function to get user input and return it
-function getHumanChoice() {
-    
-let userInput = prompt('rock, paper or scissors');
-
-return userInput.toLowerCase();
-
+    return computerNum;
 }
 
 const result = document.querySelector("#result");
@@ -38,7 +29,8 @@ const rockBtn = document.querySelector("#rock");
 rockBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
-    let humanNum = 0;
+    getComputerChoice()
+    humanNum = 0;
     
 });
 
@@ -46,14 +38,16 @@ const paperBtn = document.querySelector("#paper");
 paperBtn.addEventListener("click", (event) => {
     event.preventDefault();
 
-    let humanNum = 1;
+    getComputerChoice()
+    humanNum = 1;
 });
 
 const scissorsBtn = document.querySelector("#scissors");
 scissorsBtn.addEventListener("click", (event) => {
     event.preventDefault();
-
-    let humanNum = 2;
+    
+    getComputerChoice()
+    humanNum = 2;
 });
 
 /*
