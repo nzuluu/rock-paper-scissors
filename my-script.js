@@ -24,30 +24,123 @@ function getComputerChoice() {
 }
 
 const result = document.querySelector("#result");
+const endResult = document.createElement("div");
+endResult.classList.add("endResult");
 
 const rockBtn = document.querySelector("#rock");
 rockBtn.addEventListener("click", (event) => {
     event.preventDefault();
-
     getComputerChoice()
     humanNum = 0;
-    
+    totalRound++;
+
+    const roundsResult = document.createElement("div");
+    roundsResult.classList.add("roundsResult")
+    result.appendChild(roundsResult);
+
+    if (humanNum == 0 && computerNum == 1) {
+        roundsResult.textContent = "You lose! Paper beats Rock";
+        computerScore++;
+    }
+    else if (humanNum == 0 && computerNum == 2) {
+        roundsResult.textContent = "You win! Rock beats Scissors";
+        humanScore++;
+    }
+    else {
+        roundsResult.textContent = "It's a draw!";
+    }
+
+    if (totalRound > 5 ) {
+        if (humanScore > computerScore) {
+            endResult.textContent = "You are the winner!";
+        }
+        else {
+            endResult.textContent = "The computer is the winner!";
+        }
+        result.appendChild(endResult);
+
+        const playAgain = document.createElement("button");
+        playAgain.textContent = "Play Again?";
+        result.appendChild(playAgain);
+    }
+
+    roundsResult.focus();
 });
 
 const paperBtn = document.querySelector("#paper");
 paperBtn.addEventListener("click", (event) => {
     event.preventDefault();
-
     getComputerChoice()
     humanNum = 1;
+    totalRound++;
+
+    const roundsResult = document.createElement("div");
+    roundsResult.classList.add("roundsResult")
+    result.appendChild(roundsResult);
+
+    if (humanNum == 1 && computerNum == 0) {
+        roundsResult.textContent = "You win! Paper beats Rock";
+        humanScore++;
+    }
+    else if (humanNum == 1 && computerNum == 2) {
+        roundsResult.textContent = "You lose! Scissors beats Paper";
+        computerScore++;
+    }
+    else {
+        roundsResult.textContent = "It's a draw!";
+    }
+
+    if (totalRound > 5 ) {
+        if (humanScore > computerScore) {
+            endResult.textContent = "You are the winner!";
+        }
+        else {
+            endResult.textContent = "The computer is the winner!";
+        }
+        result.appendChild(endResult);
+        const playAgain = document.createElement("button");
+        playAgain.textContent = "Play Again?";
+        result.appendChild(playAgain);
+    }
+
+    roundsResult.focus();
 });
 
 const scissorsBtn = document.querySelector("#scissors");
 scissorsBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    
     getComputerChoice()
     humanNum = 2;
+    totalRound++;
+
+    const roundsResult = document.createElement("div");
+    roundsResult.classList.add("roundsResult")
+    result.appendChild(roundsResult);
+
+    if (humanNum == 2 && computerNum == 0) {
+        roundsResult.textContent = "You lose! Rock beats Scissors";
+        computerScore++;
+    } 
+    else if (humanNum == 2 && computerNum == 1) {
+        roundsResult.textContent = "You win! Scissors beats Paper";
+        humanScore++;
+    }
+    else {
+        roundsResult.textContent = "It's a draw!";
+    }
+    if (totalRound > 5 ) {
+        if (humanScore > computerScore) {
+            endResult.textContent = "You are the winner!";
+        }
+        else {
+            endResult.textContent = "The computer is the winner!";
+        }
+        result.appendChild(endResult);
+        const playAgain = document.createElement("button");
+        playAgain.textContent = "Play Again?";
+        result.appendChild(playAgain);
+    }
+    roundsResult.focus();
 });
 
 /*
